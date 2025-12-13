@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/13 10:33:52 by anfouger          #+#    #+#             */
-/*   Updated: 2025/12/13 14:46:33 by anfouger         ###   ########.fr       */
+/*   Created: 2025/10/30 14:12:43 by anfouger          #+#    #+#             */
+/*   Updated: 2025/11/03 10:39:25 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fractol.h>
+#include "ft_printf.h"
 
-int main(void)
+int	ft_putchar(char c)
 {
-	void	*mlx;
-	void	*win;
-
-	mlx = mlx_init();
-	win = mlx_new_window(mlx, 800, 600, "MLX test");
-	ft_printf("MLX ready!\n");
-	mlx_loop(mlx);
-	return (0);
+	write(1, &c, 1);
+	return (1);
 }

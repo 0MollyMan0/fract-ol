@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/13 10:33:52 by anfouger          #+#    #+#             */
-/*   Updated: 2025/12/13 14:46:33 by anfouger         ###   ########.fr       */
+/*   Created: 2025/10/30 14:10:24 by anfouger          #+#    #+#             */
+/*   Updated: 2025/11/03 10:39:18 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fractol.h>
+#include "ft_printf.h"
 
-int main(void)
+int	ft_printf(const char *s, ...)
 {
-	void	*mlx;
-	void	*win;
+	int		i;
+	va_list	args;
+	int		count;
 
-	mlx = mlx_init();
-	win = mlx_new_window(mlx, 800, 600, "MLX test");
-	ft_printf("MLX ready!\n");
-	mlx_loop(mlx);
-	return (0);
+	i = 0;
+	count = 0;
+	va_start(args, s);
+	while (s[i])
+	{
+		if (s[i] == '%')
+		{
+			i++;
+			count += ft_type(s[i], args);
+		}
+		else
+			count += ft_putchar(s[i]);
+		i++;
+	}
+	va_end(args);
+	return (count);
 }

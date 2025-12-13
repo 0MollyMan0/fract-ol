@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putnbr_u.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/13 10:33:52 by anfouger          #+#    #+#             */
-/*   Updated: 2025/12/13 14:46:33 by anfouger         ###   ########.fr       */
+/*   Created: 2025/10/30 15:57:43 by anfouger          #+#    #+#             */
+/*   Updated: 2025/11/03 10:39:45 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fractol.h>
+#include "./ft_printf.h"
 
-int main(void)
+int	ft_putnbr_u(unsigned int nb)
 {
-	void	*mlx;
-	void	*win;
+	char	w;
+	int		count;
 
-	mlx = mlx_init();
-	win = mlx_new_window(mlx, 800, 600, "MLX test");
-	ft_printf("MLX ready!\n");
-	mlx_loop(mlx);
-	return (0);
+	count = 0;
+	if (nb >= 10)
+		count += ft_putnbr_u(nb / 10);
+	w = (nb % 10) + '0';
+	count++;
+	write (1, &w, 1);
+	return (count);
 }

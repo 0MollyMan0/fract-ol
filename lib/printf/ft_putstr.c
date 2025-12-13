@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/13 10:33:52 by anfouger          #+#    #+#             */
-/*   Updated: 2025/12/13 14:46:33 by anfouger         ###   ########.fr       */
+/*   Created: 2025/10/30 14:03:11 by anfouger          #+#    #+#             */
+/*   Updated: 2025/11/03 10:44:42 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fractol.h>
+#include "ft_printf.h"
 
-int main(void)
+int	ft_putstr(const char *s)
 {
-	void	*mlx;
-	void	*win;
+	int	i;
 
-	mlx = mlx_init();
-	win = mlx_new_window(mlx, 800, 600, "MLX test");
-	ft_printf("MLX ready!\n");
-	mlx_loop(mlx);
-	return (0);
+	i = 0;
+	if (!s)
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
+	while (s[i])
+	{
+		write(1, &s[i], 1);
+		i++;
+	}
+	return (i);
 }
