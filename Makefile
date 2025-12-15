@@ -19,6 +19,19 @@ PRINTF_DIR = lib/printf
 MLX_DIR    = lib/minilibx-linux
 
 # ----------------------------------
+# COLORS
+# ----------------------------------
+RESET       = \033[0m
+BLACK       = \033[0;30m
+RED         = \033[0;31m
+GREEN       = \033[0;32m
+YELLOW      = \033[0;33m
+BLUE        = \033[0;34m
+MAGENTA     = \033[0;35m
+CYAN        = \033[0;36m
+WHITE       = \033[0;37m
+
+# ----------------------------------
 # LISTE DES SOURCES (À REMPLACER PAR TOUS TES .c)
 # ----------------------------------
 SRC = $(SRC_DIR)/main.c
@@ -37,7 +50,13 @@ MLX_FLAGS = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm
 # RÈGLES
 # ----------------------------------
 
-all: $(NAME)
+all: $(NAME) banner
+
+banner :
+	@echo "$(BLUE) ____ $(CYAN) ____ $(MAGENTA)   __   $(RED) ___ $(YELLOW) ____ $(GREEN) _____  $(BLUE)__"
+	@echo "$(BLUE)( ___)$(CYAN)(  _ \ $(MAGENTA) /__\  $(RED)/ __)$(YELLOW)(_  _)$(GREEN)(  _  )$(BLUE)(  )"
+	@echo "$(BLUE))__)  $(CYAN))   / $(MAGENTA) /(__)\( $(RED)(__  $(YELLOW) )(   $(GREEN))(_)(  )$(BLUE)(__"
+	@echo "$(BLUE)(__)  $(CYAN)(_)\_)$(MAGENTA)(__)(__)$(RED)\___)$(YELLOW) (__) $(GREEN)(_____)$(BLUE)(____)$(RESET)"
 
 # Link final : libft + MLX + printf
 $(NAME): $(OBJ) $(LIBFT) $(PRINTF) $(MLX)
