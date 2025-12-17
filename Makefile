@@ -1,16 +1,16 @@
 # ----------------------------------
-# NOM DU PROJET
+# PROJECT NAME
 # ----------------------------------
 NAME = fractol
 
 # ----------------------------------
-# COMPILATEUR ET FLAGS
+# COMPILATION AND FLAGS
 # ----------------------------------
 CC      = cc
 CFLAGS  = -Wall -Wextra -Werror -g -I ./
 
 # ----------------------------------
-# CHEMINS
+# PATH
 # ----------------------------------
 SRC_DIR    = src
 OBJ_DIR    = obj
@@ -32,14 +32,16 @@ CYAN        = \033[0;36m
 WHITE       = \033[0;37m
 
 # ----------------------------------
-# LISTE DES SOURCES (À REMPLACER PAR TOUS TES .c)
+# SOURCES
 # ----------------------------------
-SRC = $(SRC_DIR)/main.c
+SRC = $(SRC_DIR)/main.c \
+	$(SRC_DIR)/event.c \
+	$(SRC_DIR)/init.c
 
 OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 # ----------------------------------
-# LIBRAIRIES
+# LIBRARIES
 # ----------------------------------
 LIBFT = $(LIBFT_DIR)/libft.a
 PRINTF = $(PRINTF_DIR)/printf.a
@@ -47,7 +49,7 @@ MLX   = $(MLX_DIR)/libmlx.a
 MLX_FLAGS = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm
 
 # ----------------------------------
-# RÈGLES
+# RULES
 # ----------------------------------
 
 all: $(NAME) banner
@@ -58,48 +60,48 @@ banner :
 	@echo "$(BLUE))__)  $(CYAN))   / $(MAGENTA) /(__)\( $(RED)(__  $(YELLOW) )(   $(GREEN))(_)(  )$(BLUE)(__"
 	@echo "$(BLUE)(__)  $(CYAN)(_)\_)$(MAGENTA)(__)(__)$(RED)\___)$(YELLOW) (__) $(GREEN)(_____)$(BLUE)(____)$(RESET)"
 
-# Link final : libft + MLX + printf
+# Final link : libft + MLX + printf
 $(NAME): $(OBJ) $(LIBFT) $(PRINTF) $(MLX)
 	@echo "\033[1;34m[LINK] -> Creating $(NAME)...\033[0m"
 	@$(CC) $(OBJ) $(LIBFT) $(PRINTF) $(MLX) $(MLX_FLAGS) -o $(NAME)
 	@echo "\033[1;32m[OK] -> $(NAME) ready!\033[0m"
 
-# Compilation des .c en .o
+# Compilation of .c in .o
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
 	@echo "\033[1;33m[CC] -> $<\033[0m"
 	@$(CC) $(CFLAGS) -I$(LIBFT_DIR) -I$(PRINTF_DIR) -I$(MLX_DIR) -c $< -o $@
 
-# Création du dossier obj si nécessaire
+# Create obj dir
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
 
-# Compilation de libft
+# Compilation of libft
 $(LIBFT):
 	@echo "\033[1;34m[LIBFT] -> Compiling libft...\033[0m"
 	@$(MAKE) -C $(LIBFT_DIR) > /dev/null
 	@echo "\033[1;32m[OK] -> libft ready!\033[0m"
 
-# Compilation de printf
+# Compilation of printf
 $(PRINTF):
 	@echo "\033[1;34m[PRINTF] -> Compiling printf...\033[0m"
 	@$(MAKE) -C $(PRINTF_DIR) > /dev/null
 	@echo "\033[1;32m[OK] -> printf ready!\033[0m"
 
-# Nettoyage des .o
+# Clean
 clean:
 	@echo "\033[1;31m[CLEAN] -> Removing object files...\033[0m"
 	@rm -rf $(OBJ_DIR)
 	@$(MAKE) -C lib/libft clean > /dev/null
 	@$(MAKE) -C lib/printf clean > /dev/null
 
-# Nettoyage complet
+# Full Clean
 fclean: clean
 	@echo "\033[1;31m[FCLEAN] -> Removing executable...\033[0m"
 	@rm -f $(NAME)
 	@$(MAKE) -C lib/libft fclean > /dev/null
 	@$(MAKE) -C lib/printf fclean > /dev/null
 
-# Rebuild complet
+# Rebuild
 re: fclean all
 
 # ----------------------------------
