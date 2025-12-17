@@ -6,35 +6,38 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 11:37:32 by anfouger          #+#    #+#             */
-/*   Updated: 2025/12/17 12:27:46 by anfouger         ###   ########.fr       */
+/*   Updated: 2025/12/17 12:55:50 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fractol.h>
 
-void    init_image(t_data *mlx)
+void    init_image(t_data *data)
 {
-    mlx->img.img = mlx_new_image(mlx->mlx, 800, 600);
-    if (!mlx->img.img)
-        ft_exit(mlx);
+    data->img.img = mlx_new_image(data->mlx, 800, 600);
+    if (!data->img.img)
+        ft_exit(data);
 
-    mlx->img.addr = mlx_get_data_addr(
-        mlx->img.img,
-        &mlx->img.bpp,
-        &mlx->img.line_len,
-        &mlx->img.endian
+    data->img.addr = mlx_get_data_addr(
+        data->img.img,
+        &data->img.bpp,
+        &data->img.line_len,
+        &data->img.endian
     );
 }
 
 t_data	*ft_init_mlx(void)
 {
-	t_data	*mlx;
+	t_data	*data;
 	
-	mlx = malloc(sizeof(t_data));
-	mlx->mlx = mlx_init();
-	if (!mlx->mlx)
+	data = malloc(sizeof(t_data));
+	data->mlx = mlx_init();
+	if (!data->mlx)
 		return (NULL);
-	mlx->win = mlx_new_window(mlx->mlx, 1080, 720, "fract-ol");
-	init_image(mlx);
-	return (mlx);
+	data->zoom = 1;
+    data->offset_x = 0;
+    data->offset_y = 0;
+	data->win = mlx_new_window(data->mlx, 1080, 720, "fract-ol");
+	init_image(data);
+	return (data);
 }

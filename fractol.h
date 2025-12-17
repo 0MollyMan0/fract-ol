@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2025/12/17 12:27:25 by anfouger         ###   ########.fr       */
+/*   Updated: 2025/12/17 14:55:59 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,22 @@ typedef struct s_data
 	void	*win;
 	void	*mlx;
 	t_img	img;
+	int		zoom;
+	int		offset_x;
+	int		offset_y;
 } t_data;
-
 
 /*---Event---*/
 int		ft_key_pressed(int keycode, t_data *param);
 int		ft_exit(t_data *param);
+
+/*---Init---*/
 t_data	*ft_init_mlx(void);
+
+/*---Visual---*/
+void	put_pixel(t_img *img, int x, int y, int color);
+int		create_trgb(int t, int r, int g, int b);
+void	render(t_data *data);
+int	mouse_hook(int button, int x, int y, t_data *data);
 
 #endif
