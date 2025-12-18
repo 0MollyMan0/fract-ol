@@ -12,29 +12,7 @@
 
 #include <fractol.h>
 
-int mandelbrot(double c_re, double c_im)
-{
-    double z_re;
-    double z_im;
-    int    i;
-
-    z_re = 0;
-    z_im = 0;
-    i = 0;
-    while (i < 100)
-    {
-        double tmp = z_re * z_re - z_im * z_im + c_re;
-        z_im = 2 * z_re * z_im + c_im;
-        z_re = tmp;
-
-        if (z_re * z_re + z_im * z_im > 4)
-            break;
-        i++;
-    }
-    return (i);
-}
-
-void	put_pixel(t_img *img, int x, int y, int color)
+static void	put_pixel(t_img *img, int x, int y, int color)
 {
 	char	*pixel;
 
@@ -42,12 +20,7 @@ void	put_pixel(t_img *img, int x, int y, int color)
 	*(unsigned int *)pixel = color;
 }
 
-int	create_trgb(int t, int r, int g, int b)
-{
-	return (t << 24 | r << 16 | g << 8 | b);
-}
-
-int	get_color(int i)
+static int	get_color(int i)
 {
 	if (i == 100)
 		return (0x00000000);

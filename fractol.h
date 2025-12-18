@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2025/12/17 14:55:59 by anfouger         ###   ########.fr       */
+/*   Updated: 2025/12/18 14:23:13 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,10 @@ int		ft_exit(t_data *param);
 t_data	*ft_init_mlx(void);
 
 /*---Visual---*/
-void	put_pixel(t_img *img, int x, int y, int color);
-int		create_trgb(int t, int r, int g, int b);
 void	render(t_data *data);
-int	mouse_hook(int button, int x, int y, t_data *data);
+int		mouse_hook(int button, int x, int y, t_data *data);
+
+/*---Fractal---*/
+int mandelbrot(double c_re, double c_im);
 
 #endif
