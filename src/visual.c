@@ -31,6 +31,9 @@ void	render(t_data *data)
 {
 	int	x;
 	int	y;
+	int color;
+	int i;
+	const int wh = 1080;
 
 	x = 0;
 	while (x < 1080)
@@ -38,10 +41,12 @@ void	render(t_data *data)
 		y = 0;
 		while (y < 1080)
 		{
-            double c_re = (x / (double)1080) * 3.0 - 2.0;
-            double c_im = (y / (double)1080) * 3.0 - 1.5;
-            int i = mandelbrot(c_re, c_im);
-            int color = get_color(i);
+			double c_re = (x - wh / 2.0) 
+				/ (0.5 * data->zoom * wh) + data->offset_x;
+			double c_im = (y - wh / 2.0) 
+				/ (0.5 * data->zoom * wh) + data->offset_y;
+			i = mandelbrot(c_re, c_im);
+			color = get_color(i);
 			put_pixel(&data->img, x, y, color);
 			y++;
 		}

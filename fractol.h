@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2025/12/18 14:23:13 by anfouger         ###   ########.fr       */
+/*   Updated: 2025/12/18 14:38:52 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ typedef struct s_data
 	void	*win;
 	void	*mlx;
 	t_img	img;
-	int		zoom;
-	int		offset_x;
-	int		offset_y;
+	double	zoom;
+	double	offset_x;
+	double	offset_y;
 } t_data;
 
 /*---Event---*/

@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 14:19:08 by anfouger          #+#    #+#             */
-/*   Updated: 2025/12/18 14:24:39 by anfouger         ###   ########.fr       */
+/*   Updated: 2025/12/18 14:31:46 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int	mandelbrot(double c_re, double c_im)
 		double tmp = z_re * z_re - z_im * z_im + c_re;
 		z_im = 2 * z_re * z_im + c_im;
 		z_re = tmp;
-
 		if (z_re * z_re + z_im * z_im > 4)
 			break;
 		i++;
