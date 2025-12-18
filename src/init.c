@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 11:37:32 by anfouger          #+#    #+#             */
-/*   Updated: 2025/12/17 15:41:25 by anfouger         ###   ########.fr       */
+/*   Updated: 2025/12/18 14:10:59 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void    init_image(t_data *data)
 {
-    data->img.img = mlx_new_image(data->mlx, 1920, 1080);
+    data->img.img = mlx_new_image(data->mlx, 1080, 1080);
     if (!data->img.img)
         ft_exit(data);
 
@@ -37,7 +37,7 @@ t_data	*ft_init_mlx(void)
 	data->zoom = 1;
     data->offset_x = 0;
     data->offset_y = 0;
-	data->win = mlx_new_window(data->mlx, 1920, 1080, "fract-ol");
+	data->win = mlx_new_window(data->mlx, 1080, 1080, "fract-ol");
 	init_image(data);
 	return (data);
 }

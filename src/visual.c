@@ -63,9 +63,9 @@ void	render(t_data *data)
 	while (x < 1080)
 	{
 		y = 0;
-		while (y < 720)
+		while (y < 1080)
 		{
-            double c_re = (x / (double)1920) * 3.0 - 2.0;
+            double c_re = (x / (double)1080) * 3.0 - 2.0;
             double c_im = (y / (double)1080) * 3.0 - 1.5;
             int i = mandelbrot(c_re, c_im);
             int color = get_color(i);
