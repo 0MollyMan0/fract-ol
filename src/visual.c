@@ -58,11 +58,13 @@ void	render(t_data *data)
 	while (x < wh)
 	{
 		y = 0;
+		data->x = x;
 		while (y < wh)
 		{
+			data->y = y;
 			c_re = (x - wh / 2.0) / (0.5 * data->zoom * wh) + data->offset_x;
 			c_im = (y - wh / 2.0) / (0.5 * data->zoom * wh) + data->offset_y;
-			fractal_choice(data, x, y, c_re, c_im);
+			fractal_choice(data, c_re, c_im);
 			y++;
 		}
 		x++;

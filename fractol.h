@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2025/12/21 15:29:45 by anfouger         ###   ########.fr       */
+/*   Updated: 2025/12/21 16:09:19 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,15 @@ typedef struct s_data
 	void	*win;
 	void	*mlx;
 	t_img	img;
+	double	julia_re;
+	double	julia_im;
 	double	zoom;
 	double	offset_x;
 	double	offset_y;
 	double	palette;
 	int		fractal;
+	int		x;
+	int		y;
 } t_data;
 
 /*---Event---*/
@@ -66,8 +70,8 @@ int		get_color(double iter, t_data *data);
 void	put_pixel(t_img *img, int x, int y, int color);
 
 /*---Fractal---*/
-void	fractal_choice(t_data *data, int x, int y, double c_re, double c_im);
+void	fractal_choice(t_data *data, double c_re, double c_im);
 double	mandelbrot(double c_re, double c_im);
-double	julia(double c_re, double c_im);
+double	julia(double c_re, double c_im, t_data *data);
 
 #endif

@@ -6,18 +6,20 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 14:19:08 by anfouger          #+#    #+#             */
-/*   Updated: 2025/12/21 15:17:27 by anfouger         ###   ########.fr       */
+/*   Updated: 2025/12/21 16:26:04 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fractol.h>
 
-void	fractal_choice(t_data *data, int x, int y, double c_re, double c_im)
+void	fractal_choice(t_data *data, double c_re, double c_im)
 {
 	if (data->fractal == 0)
-		put_pixel(&data->img, x, y, get_color(mandelbrot(c_re, c_im), data));
+		put_pixel(&data->img, data->x, data->y, 
+			get_color(mandelbrot(c_re, c_im), data));
 	else if (data->fractal == 1)
-		put_pixel(&data->img, x, y, get_color(julia(c_re, c_im), data));
+		put_pixel(&data->img, data->x, data->y, 
+			get_color(julia(c_re, c_im, data), data));
 }
 
 double	mandelbrot(double c_re, double c_im)
@@ -45,26 +47,27 @@ double	mandelbrot(double c_re, double c_im)
 	return i + 1 - log(log(modulus)) / log(2);
 }
 
-double	julia(double c_re, double c_im)
+double	julia(double c_re, double c_im, t_data *data)
 {
-	double	z_re;
-	double	z_im;
 	double	tmp;
+	double	k_im;
+	double	k_re;
 	double	i;
 
-	z_re = 0;
-	z_im = 0;
 	i = 0;
+	k_re = data->julia_re;
+	k_im = data->julia_im;
 	while (i < 100)
 	{
-		tmp = z_re * z_re - z_im * z_im + c_re;
-		z_im = (z_im * z_re) * 2 + c_im;
-		z_re = tmp;
-		if (z_re * z_re + z_im * z_im > 4)
+		tmp = c_re * c_re - c_im * c_im + k_re;
+		c_im = 2 * c_re * c_im + k_im;
+		c_re = tmp;
+		if (c_re * c_re + c_im * c_im > 4)
 			break;
 		i++;
 	}
 	if (i == 100)
 		return (i);
-	return (i + (4.0 - (z_re * z_re + z_im * z_im) / 4.0));
+	double modulus = sqrt(c_re * c_re + c_im * c_im);
+	return i + 1 - log(log(modulus)) / log(2);
 }
