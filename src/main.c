@@ -6,17 +6,28 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 10:33:52 by anfouger          #+#    #+#             */
-/*   Updated: 2025/12/18 14:39:40 by anfouger         ###   ########.fr       */
+/*   Updated: 2025/12/21 15:24:18 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fractol.h>
 
-int	main(void)
+void	error_param(void)
+{
+	write(1, "Wrong parameters !!!\n", 21);
+	write(1, "You can choose between \"julia\" and \"mandelbrot\"\n", 48);
+}
+
+int	main(int ac, char **av)
 {
 	t_data	*data;
 
-	data = ft_init_mlx();
+	data = ft_init_mlx(ac, av);
+	if (!data)
+	{
+		error_param();
+		return (0);
+	}
 	if (!data->mlx)
 	{
 		ft_exit(data);

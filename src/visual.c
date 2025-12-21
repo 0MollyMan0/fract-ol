@@ -12,7 +12,7 @@
 
 #include <fractol.h>
 
-static void	put_pixel(t_img *img, int x, int y, int color)
+void	put_pixel(t_img *img, int x, int y, int color)
 {
 	char	*pixel;
 
@@ -20,7 +20,7 @@ static void	put_pixel(t_img *img, int x, int y, int color)
 	*(unsigned int *)pixel = color;
 }
 
-static int	get_color(double iter, t_data *data)
+int	get_color(double iter, t_data *data)
 {
 	double t;
 
@@ -62,7 +62,7 @@ void	render(t_data *data)
 		{
 			c_re = (x - wh / 2.0) / (0.5 * data->zoom * wh) + data->offset_x;
 			c_im = (y - wh / 2.0) / (0.5 * data->zoom * wh) + data->offset_y;
-			put_pixel(&data->img, x, y, get_color(mandelbrot(c_re, c_im), data));
+			fractal_choice(data, x, y, c_re, c_im);
 			y++;
 		}
 		x++;

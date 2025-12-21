@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 11:19:37 by anfouger          #+#    #+#             */
-/*   Updated: 2025/12/21 14:29:00 by anfouger         ###   ########.fr       */
+/*   Updated: 2025/12/21 14:58:42 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,10 @@ int mouse_hook(int button, int x, int y, t_data *data)
 
 int	ft_exit(t_data *data)
 {
-	mlx_destroy_window(data->mlx, data->win);
-	mlx_destroy_image(data->mlx, data->img.img);
+	if (data->win)
+		mlx_destroy_window(data->mlx, data->win);
+	if (data->img.img)
+		mlx_destroy_image(data->mlx, data->img.img);
 	mlx_destroy_display(data->mlx);
 	free(data->mlx);
 	free(data);
