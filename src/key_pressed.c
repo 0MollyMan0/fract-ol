@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/21 15:28:35 by anfouger          #+#    #+#             */
-/*   Updated: 2025/12/21 15:31:41 by anfouger         ###   ########.fr       */
+/*   Updated: 2025/12/21 15:38:33 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,30 @@ static void	change_palette(int keycode, t_data *data)
 		else
 			data->palette--;	
 	}
-	if (keycode == 50)
+	else if (keycode == 50)
 	{
 		if (data->palette == 8)
 			data->palette = 0;
 		else
 			data->palette++;
+	}
+}
+
+static void	change_fractal(int keycode, t_data *data)
+{
+	if (keycode == 51)
+	{
+		if (data->fractal == 0)
+			data->fractal = 1;
+		else
+			data->fractal--;	
+	}
+	else if (keycode == 52)
+	{
+		if (data->fractal == 1)
+			data->fractal = 0;
+		else
+			data->fractal++;
 	}
 }
 
@@ -46,10 +64,12 @@ int	ft_key_pressed(int keycode, t_data *data)
 {
 	if (keycode == 65307)
 		ft_exit(data);
-	if (keycode >= 65361 && keycode <= 65364)
+	else if (keycode >= 65361 && keycode <= 65364)
 		move(keycode, data);
-	if (keycode == 49 || keycode == 50)
-		change_palette(keycode, data);	
+	else if (keycode == 49 || keycode == 50)
+		change_palette(keycode, data);
+	else if (keycode == 51 || keycode == 52)
+		change_fractal(keycode, data);
 	render(data);
 	return (0);
 }
