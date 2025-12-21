@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/21 15:28:35 by anfouger          #+#    #+#             */
-/*   Updated: 2025/12/21 15:38:33 by anfouger         ###   ########.fr       */
+/*   Updated: 2025/12/21 16:46:20 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,14 @@ static void	change_palette(int keycode, t_data *data)
 		else
 			data->palette++;
 	}
+}
+
+static void	change_julia(int keycode, t_data *data)
+{
+	if (keycode == 113)
+		data->julia_im -= 0.001;	
+	else if (keycode == 101)
+		data->julia_im += 0.001;
 }
 
 static void	change_fractal(int keycode, t_data *data)
@@ -70,6 +78,8 @@ int	ft_key_pressed(int keycode, t_data *data)
 		change_palette(keycode, data);
 	else if (keycode == 51 || keycode == 52)
 		change_fractal(keycode, data);
+	else if (keycode == 113 || keycode == 101)
+		change_julia(keycode, data);
 	render(data);
 	return (0);
 }

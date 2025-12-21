@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 11:37:32 by anfouger          #+#    #+#             */
-/*   Updated: 2025/12/21 16:20:35 by anfouger         ###   ########.fr       */
+/*   Updated: 2025/12/21 16:46:26 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void	init_fractal(t_data *data, char **av)
 		data->fractal = 1;
 		if (av[2] && av[3])
 		{
-			data->julia_re = (double)ft_atoi(av[2]) / 100;
-			data->julia_im = (double)ft_atoi(av[3]) / 100;
+			data->julia_re = (double)ft_atoi(av[2]) / 1000;
+			data->julia_im = (double)ft_atoi(av[3]) / 1000;
 		}
 		else
 		{
