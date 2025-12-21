@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 14:19:08 by anfouger          #+#    #+#             */
-/*   Updated: 2025/12/21 13:06:07 by anfouger         ###   ########.fr       */
+/*   Updated: 2025/12/21 14:36:42 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ double	mandelbrot(double c_re, double c_im)
 	}
 	if (i == 100)
 		return (i);
-	return (i + (4.0 - (z_re * z_re + z_im * z_im) / 4.0));
+	double modulus = sqrt(z_re * z_re + z_im * z_im);
+	return i + 1 - log(log(modulus)) / log(2);
 }

@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2025/12/21 13:28:17 by anfouger         ###   ########.fr       */
+/*   Updated: 2025/12/21 14:16:33 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct s_data
 	double	zoom;
 	double	offset_x;
 	double	offset_y;
-	double	color_shift;
+	double	palette;
 } t_data;
 
 /*---Event---*/
@@ -48,6 +48,10 @@ int		ft_exit(t_data *param);
 t_data	*ft_init_mlx(void);
 
 /*---Colors---*/
+int		palette_blue_white(double iter);
+int		palette_rgb(double t);
+int		palette_fire(double iter);
+int		violet_to_red(double t);
 int		red_to_yellow(double t);
 int		yellow_to_green(double t);
 int		green_to_cyan(double t);

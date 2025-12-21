@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 11:37:32 by anfouger          #+#    #+#             */
-/*   Updated: 2025/12/21 11:58:46 by anfouger         ###   ########.fr       */
+/*   Updated: 2025/12/21 14:09:42 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ t_data	*ft_init_mlx(void)
 	data->zoom = 1.0;
     data->offset_x = -0.5;
     data->offset_y = 0.0;
-    data->color_shift = 0.0;
+    data->palette = 0.0;
 	data->win = mlx_new_window(data->mlx, 1080, 1080, "fract-ol");
 	init_image(data);
 	return (data);

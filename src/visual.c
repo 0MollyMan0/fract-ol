@@ -20,38 +20,30 @@ static void	put_pixel(t_img *img, int x, int y, int color)
 	*(unsigned int *)pixel = color;
 }
 
-static int	violet_to_red(double t)
-{
-	const int	r = 255;
-	const int	g = 0;
-	int			b;
-
-	b = 255 - (t * 255);
-	return (r << 16 | g << 8 | b);
-}
-
-static int	get_color(double iter)
+static int	get_color(double iter, t_data *data)
 {
 	double t;
-	double zone;
-	double t_local; 
 
 	if (iter == 100)
 		return (0);
 	t = iter / 100.0;
-	zone = t * 6;
-	t_local = zone - (int)zone;
-	if (zone < 1)
-		return cyan_to_blue(t_local);
-	else if (zone >= 1 && zone < 2)
-		return blue_to_violet(t_local);
-	else if (zone >= 2 && zone < 3)
-		return violet_to_red(t_local);
-	else if (zone >= 3 && zone < 4)
-		return red_to_yellow(t_local);
-	else if (zone >= 4 && zone < 5)
-		return yellow_to_green(t_local);
-	return green_to_cyan(t_local);
+	if (data->palette == 0)
+		return palette_rgb(t);
+	else if (data->palette == 1)
+		return palette_fire(iter);
+	else if (data->palette == 2)
+		return palette_blue_white(iter);
+	else if (data->palette == 3)
+		return red_to_yellow(t);
+	else if (data->palette == 4)
+		return yellow_to_green(t);
+	else if (data->palette == 5)
+		return green_to_cyan(t);
+	else if (data->palette == 6)
+		return cyan_to_blue(t);
+	else if (data->palette == 7)
+		return blue_to_violet(t);
+	return violet_to_red(t);
 }
 
 void	render(t_data *data)
@@ -70,7 +62,7 @@ void	render(t_data *data)
 		{
 			c_re = (x - wh / 2.0) / (0.5 * data->zoom * wh) + data->offset_x;
 			c_im = (y - wh / 2.0) / (0.5 * data->zoom * wh) + data->offset_y;
-			put_pixel(&data->img, x, y, get_color(mandelbrot(c_re, c_im)));
+			put_pixel(&data->img, x, y, get_color(mandelbrot(c_re, c_im), data));
 			y++;
 		}
 		x++;

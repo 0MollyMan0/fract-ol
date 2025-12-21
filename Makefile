@@ -39,6 +39,7 @@ SRC = $(SRC_DIR)/main.c \
 	$(SRC_DIR)/init.c \
 	$(SRC_DIR)/fractal.c \
 	$(SRC_DIR)/visual.c \
+	$(SRC_DIR)/colors_palette.c \
 	$(SRC_DIR)/colors.c
 
 OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
