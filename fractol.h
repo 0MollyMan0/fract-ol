@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2025/12/18 14:38:52 by anfouger         ###   ########.fr       */
+/*   Updated: 2025/12/21 12:42:59 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include "ft_printf.h"
 # include <stdlib.h>
 # include <unistd.h>
+# include <math.h>
 
 typedef struct s_img
 {
@@ -36,6 +37,7 @@ typedef struct s_data
 	double	zoom;
 	double	offset_x;
 	double	offset_y;
+	double	color_shift;
 } t_data;
 
 /*---Event---*/
@@ -50,6 +52,6 @@ void	render(t_data *data);
 int		mouse_hook(int button, int x, int y, t_data *data);
 
 /*---Fractal---*/
-int mandelbrot(double c_re, double c_im);
+double mandelbrot(double c_re, double c_im);
 
 #endif

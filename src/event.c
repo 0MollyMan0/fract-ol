@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 11:19:37 by anfouger          #+#    #+#             */
-/*   Updated: 2025/12/18 15:30:11 by anfouger         ###   ########.fr       */
+/*   Updated: 2025/12/21 11:59:29 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	ft_key_pressed(int keycode, t_data *data)
 {
-	ft_printf("key press\n");
 	if (keycode == 65307)
 		ft_exit(data);
 	if (keycode == 65361)
@@ -22,7 +21,7 @@ int	ft_key_pressed(int keycode, t_data *data)
 	if (keycode == 65363)
 		data->offset_x += 0.4 / data->zoom;
 	if (keycode == 65362)
-		data->offset_y -= 0.4 / data->zoom;
+		data->offset_y -= 0.4 / data->zoom;																	
 	if (keycode == 65364)
 		data->offset_y += 0.4 / data->zoom;
 	render(data);
@@ -38,6 +37,7 @@ int mouse_hook(int button, int x, int y, t_data *data)
 
 	if (button != 4 && button != 5)
 		return (0);
+	data->color_shift += 0.02;
 	mouse_re = (x - 1080 / 2.0) / (0.5 * data->zoom * 1080) + data->offset_x;
 	mouse_im = (y - 1080 / 2.0) / (0.5 * data->zoom * 1080) + data->offset_y;
 	if (button == 4)

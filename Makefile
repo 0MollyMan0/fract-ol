@@ -65,7 +65,7 @@ banner :
 # Final link : libft + MLX + printf
 $(NAME): $(OBJ) $(LIBFT) $(PRINTF) $(MLX)
 	@echo "\033[1;34m[LINK] -> Creating $(NAME)...\033[0m"
-	@$(CC) $(OBJ) $(LIBFT) $(PRINTF) $(MLX) $(MLX_FLAGS) -o $(NAME)
+	@$(CC) $(OBJ) $(LIBFT) $(PRINTF) $(MLX) $(MLX_FLAGS) -lm -o $(NAME)
 	@echo "\033[1;32m[OK] -> $(NAME) ready!\033[0m"
 
 # Compilation of .c in .o
