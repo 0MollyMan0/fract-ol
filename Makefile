@@ -36,6 +36,7 @@ WHITE       = \033[0;37m
 # ----------------------------------
 SRC = $(SRC_DIR)/main.c \
 	$(SRC_DIR)/event.c \
+	$(SRC_DIR)/key_pressed.c \
 	$(SRC_DIR)/init.c \
 	$(SRC_DIR)/fractal.c \
 	$(SRC_DIR)/visual.c \

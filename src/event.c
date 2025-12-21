@@ -6,47 +6,11 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 11:19:37 by anfouger          #+#    #+#             */
-/*   Updated: 2025/12/21 14:58:42 by anfouger         ###   ########.fr       */
+/*   Updated: 2025/12/21 15:29:15 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fractol.h>
-
-void	change_palette(int keycode, t_data *data)
-{
-	if (keycode == 49)
-	{
-		if (data->palette == 0)
-			data->palette = 8;
-		else
-			data->palette--;	
-	}
-	if (keycode == 50)
-	{
-		if (data->palette == 8)
-			data->palette = 0;
-		else
-			data->palette++;
-	}
-}
-
-int	ft_key_pressed(int keycode, t_data *data)
-{
-	if (keycode == 65307)
-		ft_exit(data);
-	if (keycode == 65361)
-		data->offset_x -= 0.4 / data->zoom;
-	if (keycode == 65363)
-		data->offset_x += 0.4 / data->zoom;
-	if (keycode == 65362)
-		data->offset_y -= 0.4 / data->zoom;																	
-	if (keycode == 65364)
-		data->offset_y += 0.4 / data->zoom;
-	if (keycode == 49 || keycode == 50)
-		change_palette(keycode, data);	
-	render(data);
-	return (0);
-}
 
 int mouse_hook(int button, int x, int y, t_data *data)
 {

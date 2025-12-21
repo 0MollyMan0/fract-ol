@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2025/12/21 15:23:29 by anfouger         ###   ########.fr       */
+/*   Updated: 2025/12/21 15:29:45 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ typedef struct s_data
 } t_data;
 
 /*---Event---*/
+int		mouse_hook(int button, int x, int y, t_data *data);
 int		ft_key_pressed(int keycode, t_data *param);
 int		ft_exit(t_data *param);
 
@@ -61,7 +62,6 @@ int		blue_to_violet(double t);
 
 /*---Visual---*/
 void	render(t_data *data);
-int		mouse_hook(int button, int x, int y, t_data *data);
 int		get_color(double iter, t_data *data);
 void	put_pixel(t_img *img, int x, int y, int color);
 
