@@ -20,20 +20,38 @@ static void	put_pixel(t_img *img, int x, int y, int color)
 	*(unsigned int *)pixel = color;
 }
 
-int	get_color(double iter)
+static int	violet_to_red(double t)
+{
+	const int	r = 255;
+	const int	g = 0;
+	int			b;
+
+	b = 255 - (t * 255);
+	return (r << 16 | g << 8 | b);
+}
+
+static int	get_color(double iter)
 {
 	double t;
-	int	r;
-	int	g;
-	int	b;
+	double zone;
+	double t_local; 
 
 	if (iter == 100)
 		return (0);
 	t = iter / 100.0;
-	r = t * 255;
-	g = 0;
-	b = 255;
-	return (r << 16 | g << 8 | b);
+	zone = t * 6;
+	t_local = zone - (int)zone;
+	if (zone < 1)
+		return cyan_to_blue(t_local);
+	else if (zone >= 1 && zone < 2)
+		return blue_to_violet(t_local);
+	else if (zone >= 2 && zone < 3)
+		return violet_to_red(t_local);
+	else if (zone >= 3 && zone < 4)
+		return red_to_yellow(t_local);
+	else if (zone >= 4 && zone < 5)
+		return yellow_to_green(t_local);
+	return green_to_cyan(t_local);
 }
 
 void	render(t_data *data)

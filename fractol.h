@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2025/12/21 12:42:59 by anfouger         ###   ########.fr       */
+/*   Updated: 2025/12/21 13:28:17 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,13 @@ int		ft_exit(t_data *param);
 
 /*---Init---*/
 t_data	*ft_init_mlx(void);
+
+/*---Colors---*/
+int		red_to_yellow(double t);
+int		yellow_to_green(double t);
+int		green_to_cyan(double t);
+int		cyan_to_blue(double t);
+int		blue_to_violet(double t);
 
 /*---Visual---*/
 void	render(t_data *data);
