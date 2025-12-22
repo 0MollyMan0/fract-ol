@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/21 15:28:35 by anfouger          #+#    #+#             */
-/*   Updated: 2025/12/22 10:03:52 by anfouger         ###   ########.fr       */
+/*   Updated: 2025/12/22 10:59:19 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ static void	change_palette(int keycode, t_data *data)
 	if (keycode == '1')
 	{
 		if (data->palette == 0)
-			data->palette = 8;
+			data->palette = 3;
 		else
 			data->palette--;	
 	}
 	else if (keycode == '2')
 	{
-		if (data->palette == 8)
+		if (data->palette == 3)
 			data->palette = 0;
 		else
 			data->palette++;

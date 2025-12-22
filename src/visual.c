@@ -33,17 +33,8 @@ int	get_color(double iter, t_data *data)
 		return palette_fire(iter);
 	else if (data->palette == 2)
 		return palette_blue_white(iter);
-	else if (data->palette == 3)
-		return red_to_yellow(t);
-	else if (data->palette == 4)
-		return yellow_to_green(t);
-	else if (data->palette == 5)
-		return green_to_cyan(t);
-	else if (data->palette == 6)
-		return cyan_to_blue(t);
-	else if (data->palette == 7)
-		return blue_to_violet(t);
-	return violet_to_red(t);
+	else
+		return palette_reverse_rgb(t);
 }
 
 void	render(t_data *data)

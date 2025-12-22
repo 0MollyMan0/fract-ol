@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/21 14:06:08 by anfouger          #+#    #+#             */
-/*   Updated: 2025/12/21 14:16:45 by anfouger         ###   ########.fr       */
+/*   Updated: 2025/12/22 10:58:09 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,26 @@ int	palette_rgb(double t)
 	else if (zone >= 4 && zone < 5)
 		return yellow_to_green(t_local);
 	return green_to_cyan(t_local);
+}
+
+int	palette_reverse_rgb(double t)
+{
+	double zone;
+	double t_local; 
+
+	zone = t * 6;
+	t_local = zone - (int)zone;
+	if (zone < 1)
+		return blue_to_violet(t_local);
+	else if (zone >= 1 && zone < 2)
+		return violet_to_red(t_local);
+	else if (zone >= 2 && zone < 3)
+		return red_to_yellow(t_local);
+	else if (zone >= 3 && zone < 4)
+		return yellow_to_green(t_local);
+	else if (zone >= 4 && zone < 5)
+		return green_to_cyan(t_local);
+	return cyan_to_blue(t_local);
 }
 
 int	palette_blue_white(double iter)
