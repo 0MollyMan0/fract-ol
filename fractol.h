@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2025/12/22 12:41:59 by anfouger         ###   ########.fr       */
+/*   Updated: 2025/12/22 13:05:58 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "mlx.h"
 # include "libft.h"
+# include <limits.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <math.h>
@@ -53,6 +54,7 @@ int		ft_exit(t_data *param);
 t_data	*ft_init_mlx(int ac, char **av);
 
 /*---Verif---*/
+int		ft_verif_max(char *s);
 int		ft_verif_num(char *arg);
 void	error_param(void);
 
