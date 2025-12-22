@@ -20,13 +20,13 @@ void	put_pixel(t_img *img, int x, int y, int color)
 	*(unsigned int *)pixel = color;
 }
 
-int	get_color(double iter, t_data *data)
+int	get_color(double iter, t_data *data, int max_iter)
 {
 	double t;
 
-	if (iter == 100)
+	if (iter == max_iter)
 		return (0);
-	t = iter / 100.0;
+	t = iter / (double)max_iter;
 	if (data->palette == 0)
 		return palette_rgb(t);
 	else if (data->palette == 1)

@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2025/12/22 10:58:27 by anfouger         ###   ########.fr       */
+/*   Updated: 2025/12/22 11:48:45 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,12 +71,10 @@ int		blue_to_violet(double t);
 
 /*---Visual---*/
 void	render(t_data *data);
-int		get_color(double iter, t_data *data);
+int		get_color(double iter, t_data *data, int max_iter);
 void	put_pixel(t_img *img, int x, int y, int color);
 
 /*---Fractal---*/
 void	fractal_choice(t_data *data, double c_re, double c_im);
-double	mandelbrot(double c_re, double c_im);
-double	julia(double c_re, double c_im, t_data *data);
 
 #endif
