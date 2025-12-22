@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2025/12/21 16:09:19 by anfouger         ###   ########.fr       */
+/*   Updated: 2025/12/22 10:17:54 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,10 @@ int		ft_exit(t_data *param);
 
 /*---Init---*/
 t_data	*ft_init_mlx(int ac, char **av);
+
+/*---Verif---*/
+int		ft_verif_num(char *arg);
+void	error_param(void);
 
 /*---Colors---*/
 int		palette_blue_white(double iter);
