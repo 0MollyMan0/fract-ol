@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 10:33:52 by anfouger          #+#    #+#             */
-/*   Updated: 2025/12/22 10:33:48 by anfouger         ###   ########.fr       */
+/*   Updated: 2025/12/22 11:20:47 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 void	error_param(void)
 {
 	write(1, "!!! Wrong parameters !!!\n", 25);
-	write(1, "You can choose between \"julia\" and \"mandelbrot\"\n", 48);
+	write(1, "You can choose between \"julia\", \"mandelbrot\" ", 45);
+	write(1, "\"burning_ship\".\n", 16);
 	write(1, "If you choose the Julia fractal, you must enter the real", 56);
 	write(1, " part and the imaginary part. \nThe values must be entered", 57);
 	write(1, " as integers (e.g. \"115\" and \"754\"), which will", 47);

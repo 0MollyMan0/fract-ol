@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 11:37:32 by anfouger          #+#    #+#             */
-/*   Updated: 2025/12/22 10:43:08 by anfouger         ###   ########.fr       */
+/*   Updated: 2025/12/22 11:18:33 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	init_fractal(t_data *data, char **av)
 {
 	if (ft_strcmp(av[1], "mandelbrot") == 0)
 		data->fractal = 0;
+	else if (ft_strcmp(av[1], "burning_ship") == 0)
+		data->fractal = 2;
 	else if (ft_strcmp(av[1], "julia") == 0)
 	{
 		data->fractal = 1;

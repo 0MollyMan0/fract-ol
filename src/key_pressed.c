@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/21 15:28:35 by anfouger          #+#    #+#             */
-/*   Updated: 2025/12/22 10:59:19 by anfouger         ###   ########.fr       */
+/*   Updated: 2025/12/22 11:14:02 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,13 @@ static void	change_fractal(int keycode, t_data *data)
 	if (keycode == '3')
 	{
 		if (data->fractal == 0)
-			data->fractal = 1;
+			data->fractal = 2;
 		else
 			data->fractal--;	
 	}
 	else if (keycode == '4')
 	{
-		if (data->fractal == 1)
+		if (data->fractal == 2)
 			data->fractal = 0;
 		else
 			data->fractal++;
