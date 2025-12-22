@@ -6,16 +6,16 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/21 15:19:08 by anfouger          #+#    #+#             */
-/*   Updated: 2025/12/21 15:21:29 by anfouger         ###   ########.fr       */
+/*   Updated: 2025/12/22 12:55:54 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_strcmp(char *s1, char *s2)
+int	ft_strcmp(char *s1, char *s2)
 {
 	while (*s1 && (*s1 == *s2))
 	{
 		s1++;
 		s2++;
 	}
-	return (unsigned char)*s1 - (unsigned char)*s2;
+	return ((unsigned char)*s1 - (unsigned char)*s2);
 }

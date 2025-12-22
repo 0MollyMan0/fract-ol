@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:04:04 by anfouger          #+#    #+#             */
-/*   Updated: 2025/12/22 11:48:45 by anfouger         ###   ########.fr       */
+/*   Updated: 2025/12/22 12:41:59 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include "mlx.h"
 # include "libft.h"
-# include "ft_printf.h"
 # include <stdlib.h>
 # include <unistd.h>
 # include <math.h>
@@ -27,23 +26,23 @@ typedef struct s_img
 	int		bpp;
 	int		line_len;
 	int		endian;
-} t_img;
+}				t_img;
 
 typedef struct s_data
 {
-	void	*win;
-	void	*mlx;
-	t_img	img;
-	double	julia_re;
-	double	julia_im;
-	double	zoom;
-	double	offset_x;
-	double	offset_y;
-	double	palette;
-	int		fractal;
-	int		x;
-	int		y;
-} t_data;
+	void		*win;
+	void		*mlx;
+	t_img		img;
+	double		julia_re;
+	double		julia_im;
+	long double	zoom;
+	long double	offset_x;
+	long double	offset_y;
+	double		palette;
+	int			fractal;
+	int			x;
+	int			y;
+}					t_data;
 
 /*---Event---*/
 int		mouse_hook(int button, int x, int y, t_data *data);

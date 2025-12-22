@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 10:33:52 by anfouger          #+#    #+#             */
-/*   Updated: 2025/12/22 11:20:47 by anfouger         ###   ########.fr       */
+/*   Updated: 2025/12/22 12:42:29 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	main(int ac, char **av)
 	if (!data->mlx)
 	{
 		ft_exit(data);
-		return (1);	
+		return (1);
 	}
 	render(data);
 	mlx_hook(data->win, 2, 1L << 0, ft_key_pressed, data);
@@ -46,5 +46,3 @@ int	main(int ac, char **av)
 	mlx_loop(data->mlx);
 	return (0);
 }
-
-

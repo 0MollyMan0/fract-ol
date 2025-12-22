@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   visual.c                                            :+:      :+:    :+:   */
+/*   visual.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 14:21:17 by anfouger          #+#    #+#             */
-/*   Updated: 2025/12/17 14:21:30 by anfouger         ###   ########.fr       */
+/*   Updated: 2025/12/22 12:46:05 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,28 +22,28 @@ void	put_pixel(t_img *img, int x, int y, int color)
 
 int	get_color(double iter, t_data *data, int max_iter)
 {
-	double t;
+	double	t;
 
 	if (iter == max_iter)
 		return (0);
 	t = iter / (double)max_iter;
 	if (data->palette == 0)
-		return palette_rgb(t);
+		return (palette_rgb(t));
 	else if (data->palette == 1)
-		return palette_fire(iter);
+		return (palette_fire(iter));
 	else if (data->palette == 2)
-		return palette_blue_white(iter);
+		return (palette_blue_white(iter));
 	else
-		return palette_reverse_rgb(t);
+		return (palette_reverse_rgb(t));
 }
 
 void	render(t_data *data)
 {
-	int	x;
-	int	y;
-	const int wh = 1080;
-	double	c_re;
-	double	c_im;
+	int			x;
+	int			y;
+	const int	wh = 1080;
+	long double	c_re;
+	long double	c_im;
 
 	x = 0;
 	while (x < wh)
@@ -62,4 +62,3 @@ void	render(t_data *data)
 	}
 	mlx_put_image_to_window(data->mlx, data->win, data->img.img, 0, 0);
 }
-

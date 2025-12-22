@@ -6,13 +6,13 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 11:19:37 by anfouger          #+#    #+#             */
-/*   Updated: 2025/12/22 10:39:18 by anfouger         ###   ########.fr       */
+/*   Updated: 2025/12/22 12:42:56 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fractol.h>
 
-int mouse_hook(int button, int x, int y, t_data *data)
+int	mouse_hook(int button, int x, int y, t_data *data)
 {
 	double	mouse_re;
 	double	mouse_im;
@@ -45,5 +45,5 @@ int	ft_exit(t_data *data)
 	free(data->mlx);
 	free(data);
 	exit(0);
-	return(0);    
+	return (0);
 }
