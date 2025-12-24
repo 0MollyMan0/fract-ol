@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 09:19:48 by anfouger          #+#    #+#             */
-/*   Updated: 2025/11/08 12:19:47 by anfouger         ###   ########.fr       */
+/*   Updated: 2025/12/24 06:28:40 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,10 +70,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	start;
 	size_t	end;
 	char	*new;
-	size_t	i;
 	size_t	x;
 
-	i = 0;
 	if (!s1)
 		return (NULL);
 	start = calc_start(s1, set);
