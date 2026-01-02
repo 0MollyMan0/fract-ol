@@ -6,7 +6,7 @@
 /*   By: anfouger <anfouger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 14:19:08 by anfouger          #+#    #+#             */
-/*   Updated: 2025/12/22 12:49:27 by anfouger         ###   ########.fr       */
+/*   Updated: 2026/01/02 14:08:08 by anfouger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,11 +94,8 @@ static double	burning_ship(double c_re, double c_im, int max_iter)
 
 void	fractal_choice(t_data *data, double c_re, double c_im)
 {
-	int	max_iter;
+	const int	max_iter = 100;
 
-	max_iter = 100 * data->zoom;
-	if (max_iter > 1000)
-		max_iter = 1000;
 	if (data->fractal == 0)
 		put_pixel(&data->img, data->x, data->y,
 			get_color(mandelbrot(c_re, c_im, max_iter), data, max_iter));
